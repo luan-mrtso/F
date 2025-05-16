@@ -1,0 +1,42 @@
+</style>
+</head>
+<body>
+    <div class="scene campo" id="scene">
+        <div>
+            <p>Bem-vindo ao Campo!</p>
+            <button class="transition-button" onclick="mudarCena()">Ir para a Cidade</button>
+        </div>
+    </div>
+
+    <script>
+        let cenaAtual = 'campo';
+
+        function mudarCena() {
+            const sceneElement = document.getElementById('scene');
+            if (cenaAtual === 'campo') {
+                sceneElement.classList.remove('campo');
+                sceneElement.classList.add('cidade');
+                sceneElement.innerHTML = `
+                    <div>
+                        <p>Bem-vindo à Cidade!</p>
+                        <button class="transition-button" onclick="mudarCena()">Voltar para o Campo</button>
+                    </div>
+                `;
+                cenaAtual = 'cidade';
+                document.body.style.backgroundColor = '#333333'; // Cor de fundo da cidade
+            } else {
+                sceneElement.classList.remove('cidade');
+                sceneElement.classList.add('campo');
+                sceneElement.innerHTML = `
+                    <div>
+                        <p>Bem-vindo ao Campo!</p>
+                        <button class="transition-button" onclick="mudarCena()">Ir para a Cidade</button>
+                    </div>
+                `;
+                cenaAtual = 'campo';
+                document.body.style.backgroundColor = '#a8d08d'; // Cor de fundo do campo
+            }
+        }
+    </script>
+</body>
+</html>
